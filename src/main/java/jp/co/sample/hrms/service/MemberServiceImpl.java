@@ -16,49 +16,33 @@
 
 package jp.co.sample.hrms.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
-import org.springframework.util.StringUtils;
 
 import jp.co.sample.hrms.domain.Member;
-import jp.co.sample.hrms.repository.MemberRepository;
-import jp.co.sample.hrms.repository.MemberSearchCriteria;
+import jp.co.sample.hrms.mapper.MemberMapper;
 
-@Component("memberService")
+@Service("memberService")
 @Transactional
 class MemberServiceImpl implements MemberService {
 
 	@Autowired
-    MemberRepository memberRepository;
-
-	@Override
-	public Page<Member> findMembers(MemberSearchCriteria criteria, Pageable pageable) {
-
-		Assert.notNull(criteria, "Criteria must not be null");
-		String name = criteria.getName();
-
-		if (!StringUtils.hasLength(name)) {
-			return memberRepository.findAll(null);
-		}
-
-		int splitPos = name.lastIndexOf(",");
-
-		if (splitPos >= 0) {
-			name = name.substring(0, splitPos);
-		}
-
-		return this.memberRepository
-				.findByNameAllIgnoringCase(name.trim());
-	}
+    MemberMapper memberMapper;
 
 	@Override
 	public Member getMember(long id, String name) {
 		Assert.notNull(name, "Name must not be null");
-		return this.memberRepository.findByIdOrName(id, name);
+		return this.memberMapper.findByIdOrName(id, name);
 	}
+    public Member getUserInfo(String userName){
+        return memberMapper.findByNameAllIgnoringCase(userName);
+    }
 
+    public List<Member> getAllUserInfo(){
+        return memberMapper.findAll();
+    }
 }
