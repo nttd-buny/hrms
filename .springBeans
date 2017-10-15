@@ -7,7 +7,6 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>java:jp.co.sample.hrms.web.Application</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
