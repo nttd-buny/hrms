@@ -10,6 +10,7 @@
 	</parent>
 
 	<artifactId>hrms-domain</artifactId>
+    <packaging>jar</packaging>
 
 	<name>hrms-domain</name>
 	<description>hrms domain</description>

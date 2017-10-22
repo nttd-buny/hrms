@@ -22,8 +22,8 @@
 		<main.basedir>${basedir}</main.basedir>
 	</properties>
     <modules>
-		<module>jp-co-samples-hrms-domain</module>
-		<module>jp-co-samples-hrms-web</module>
+		<module>hrms-domain</module>
+		<module>hrms-web</module>
 	</modules>
 	<build>
 		<pluginManagement>

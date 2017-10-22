@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package sample.data.rest.service;
+package sample.service;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -26,7 +26,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import sample.data.rest.domain.City;
+import sample.domain.City;
 
 /**
  * Integration tests for {@link CityRepository}.

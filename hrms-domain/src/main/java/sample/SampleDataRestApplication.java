@@ -14,17 +14,16 @@
  * limitations under the License.
  */
 
-package sample.data.rest.service;
+package sample;
 
-import sample.data.rest.domain.City;
-import sample.data.rest.domain.Hotel;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+@SpringBootApplication
+public class SampleDataRestApplication {
 
-@RepositoryRestResource(collectionResourceRel = "hotels", path = "hotels")
-interface HotelRepository extends PagingAndSortingRepository<Hotel, Long> {
-
-	Hotel findByCityAndName(City city, String name);
+	public static void main(String[] args) throws Exception {
+		SpringApplication.run(SampleDataRestApplication.class, args);
+	}
 
 }
