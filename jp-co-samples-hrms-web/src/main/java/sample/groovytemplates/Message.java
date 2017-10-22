@@ -18,16 +18,12 @@ package sample.groovytemplates;
 
 import java.util.Date;
 
-import javax.validation.constraints.NotEmpty;
-
 public class Message {
 
 	private Long id;
 
-	@NotEmpty(message = "Text is required.")
 	private String text;
 
-	@NotEmpty(message = "Summary is required.")
 	private String summary;
 
 	private Date created = new Date();
